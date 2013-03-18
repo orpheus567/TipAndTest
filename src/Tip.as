@@ -7,6 +7,7 @@ package
 		public function Tip()
 		{
 			//aaaa
+				//xxxxxxxxxxxx
 		}
 	}
 }
