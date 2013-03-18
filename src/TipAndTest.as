@@ -4,6 +4,7 @@ package
 	
 	public class TipAndTest extends Sprite
 	{
+		
 		public function TipAndTest()
 		{
 			
