@@ -169,3 +169,10 @@ pip-log.txt
 *.prefs
 
 .settings/org.eclipse.core.resources.prefs
+/bin-debug
+/bin-debug
+/bin-debug
+/bin-debug
+/bin-debug
+/bin-debug
+/bin-debug

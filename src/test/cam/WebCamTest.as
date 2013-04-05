@@ -21,8 +21,8 @@ package test.cam
 	public class WebCamTest extends Sprite
 	{
 		private var cam:Camera;
-		private var vid:Video;
-		private var $videoCover:Sprite;
+		protected var vid:Video;
+		protected var _videoCover:Sprite;
 		private var $mcblend:Sprite;
 		[Embed(source="../../../asset/bokeh0.jpg")] public var Bokeh0:Class;
 		[Embed(source="../../../asset/bokeh0.jpg")] public var Bokeh1:Class;
@@ -37,9 +37,9 @@ package test.cam
 			stage.align = StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			cam = Camera.getCamera();
-			$videoCover = new Sprite;
+			_videoCover = new Sprite;
 //			$videoCover.visible =false;
-			addChild($videoCover);
+			addChild(_videoCover);
 			if (!cam) 
 			{
 				trace("No camera is installed.");
@@ -48,11 +48,17 @@ package test.cam
 			{
 				connectCamera();
 			}
+			setting();
+		}
+		
+		protected function setting():void
+		{
+			
 		}
 		
 		private function showVideo():void
 		{
-			$videoCover.visible =true;
+			_videoCover.visible =true;
 		}
 		
 		private function connectCamera():void 
@@ -62,19 +68,19 @@ package test.cam
 			
 			vid             = new Video();
 			vid.smoothing = true;
-			vid.width       = cam.width;
-			vid.height      = cam.height; 
+			vid.width       = 1920;
+			vid.height      = 1080; 
 			vid.attachCamera(cam);
 			
 			$mcblend = new Sprite;
 			addChild($mcblend);
 			
-			$mcblend.addChild(new Bokeh0);
-			$mcblend.blendMode = BlendMode.OVERLAY;
-			$videoCover.addChild(vid);    
+//			$mcblend.addChild(new Bokeh0);
+//			$mcblend.blendMode = BlendMode.OVERLAY;
+			_videoCover.addChild(vid);    
 			
 //			TweenMax.to($videoCover, .1, {colorMatrixFilter:{amount:1, saturation:0,onComplete:showVideo}});
-			stage.addEventListener(MouseEvent.CLICK, clickHandler);
+//			stage.addEventListener(MouseEvent.CLICK, clickHandler);
 		}
 		
 		private function clickHandler(e:MouseEvent):void 
